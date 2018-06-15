@@ -86,10 +86,8 @@ def evaluate_MulDiv(tokens):
     while index < len(tokens):
         if tokens[index]['type'] == 'MUL':
             mul_value= tokens[index-1]['number'] * tokens[index+1]['number']
-            tokens.insert(index-1,{'type':'NUMBER','number':mul_value})
-            print(tokens)
+            tokens.insert(index-1,{'type':'NUMBER','number':mul_value}
             del tokens[index:index+3]
-            print(tokens)
         elif tokens[index]['type'] == 'DIV':
             div_value= float(tokens[index-1]['number'])/tokens[index+1]['number']
             tokens.insert(index-1,{'type':'NUMBER','number':div_value})
@@ -137,16 +135,16 @@ def runTest():
     test("1.0+2.1-3", 0.1)
     test("1+2*5-2",9)
     test("1*2+2",4)
-   # test("1*5+5/2+2*5/2",12.5)
-   # test("2*(2-1)",2)
-   # test("((1+2)+3)+4", 10)
-   # test("1+(2+(3+4))", 10)
-   # test("(1+1)+(1+1)", 4)
-   # test("(1+2)*3", 9)
-   # test("(3.0+4*(2-1))/5", 1.4)
-   #test("2*(2+3)*(2+4)",60)
-   # test("(3.0+4*(2-1))/5",1.4)
-   # test("3*(4+50)-((100+40)*5/2-3*2*2/4+9)*(((3+4)-4)-4)",518)
+    test("1*5+5/2+2*5/2",12.5)
+    test("2*(2-1)",2)
+    test("((1+2)+3)+4", 10)
+    test("1+(2+(3+4))", 10)
+    test("(1+1)+(1+1)", 4)
+    test("(1+2)*3", 9)
+    test("(3.0+4*(2-1))/5", 1.4)
+    test("2*(2+3)*(2+4)",60)
+    test("(3.0+4*(2-1))/5",1.4)
+    test("3*(4+50)-((100+40)*5/2-3*2*2/4+9)*(((3+4)-4)-4)",518)
     print "==== Test finished! ====\n"
 
 runTest()
